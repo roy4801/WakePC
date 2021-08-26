@@ -21,6 +21,15 @@ void setup()
         // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
         status = WiFi.begin(ssid, pass);
     }
+
+    for(int i = 0; i < 3; i++)
+    {
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(300);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(300);
+    }
+
     server.begin();    // start the web server on port 80
     printWifiStatus(); // you're connected now, so print out the status
 }

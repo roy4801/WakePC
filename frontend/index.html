@@ -31,7 +31,8 @@
 
         $(document).ready(() => {
             $("#shutdownBtn").click(() => {
-                axios.get('http://192.168.68.107/shutdown')
+                let ip = $("#connectServerField").val();
+                axios.get(`http://${ip}/shutdown`)
                     .then(function (response) {
                         let data = response.data;
                         showText(data);
@@ -47,9 +48,8 @@
             });
 
             $("#bootBtn").click(() => {
-                console.log("boot");
-
-                axios.get('http://192.168.68.107/boot')
+                let ip = $("#connectServerField").val();
+                axios.get(`http://${ip}/boot`)
                     .then(function (response) {
                         let data = response.data;
                         showText(data);
